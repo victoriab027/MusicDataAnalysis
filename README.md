@@ -4,7 +4,8 @@ This project is based off of the Milion_Dollar_Playlist created by Spotify. The 
 
 Dataset Usage
 ------------
-
+- Spotify Million Playlsit Dataset: https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge 
+- Music Topics and Metadata: https://data.mendeley.com/datasets/3t9vbwxgr5/1
 
 Project Organization
 ------------
