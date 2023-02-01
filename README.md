@@ -7,6 +7,7 @@ Dataset Usage
 - Spotify Million Playlsit Dataset: https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge 
 - Music Topics and Metadata: https://data.mendeley.com/datasets/3t9vbwxgr5/1
 - MusicOS: https://marianaossilva.github.io/DSW2019/#tables
+- Last.fm Dataset: http://millionsongdataset.com/lastfm/
 
 Project Organization
 ------------
