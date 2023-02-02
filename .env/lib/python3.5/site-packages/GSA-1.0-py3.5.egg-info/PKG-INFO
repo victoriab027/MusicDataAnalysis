@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: GSA
+Version: 1.0
+Summary: Python Package to implement Gravitational Search Algorithm. Documentation at:https://github.com/deepanshu1999/GSA
+Home-page: https://github.com/deepanshu1999/GSA
+Author: Deepanshu Aggarwal
+Author-email: deepanshu4929@gmail.com
+License: MIT
+Download-URL: https://github.com/deepanshu1999/GSA/archive/1.0.tar.gz
+Description: UNKNOWN
+Keywords: GRAVITATIONAL,SEARCH,ALGORITHM,GSA,NATURE,NATURE-INSPIRED,GRAVITATIONAL-SEARCH
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
