@@ -1,8 +1,10 @@
 Music Data Analysis
 ==============================
-This project is based off of the Milion_Dollar_Playlist created by Spotify. The goal of this project is to "analyzie the Million Playlist Dataset for spotify to recommend songs to users based on the playsit chosen". I expanded the scope of this problem by implementing data from multiple other datasets. These datasets contained more data about each song such as either just tags to other similar songs or traits like "sadness", "romance", and "danceability". Cross referencing with these datasets allowed me to create a more effiecient and accurate algorithm.
+This project was initally inspired by the Milion_Dollar_Playlist created by Spotify. The goal of that compeition is to "analyzie the Million Playlist Dataset for spotify to recommend songs to users based on the playsit chosen". I initally planned to expand the scope of this problem by implementing data from multiple other dataset which contained contained more data about each song such as either just tags to other similar songs or traits like "sadness", "romance", and "danceability". 
 
-Dataset Usage
+This then evolved into implementing the Spotify API instead of the other datasets. Through exploration of the type of data I can obtain from the API, the project goal shifted. The end goal was the create an interface for users to suggest a <i>type</i> of music they would like to listen to but not know what exactly to do. They would be able to prompt "inspiration words" or genres and even shift psychoacoustic data like mentioned before. This data would then give the algorithm enough to create a playlist based on these inspirations for the user.
+
+Initial Dataset Usage
 ------------
 - Spotify Million Playlsit Dataset: https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge 
 - Music Topics and Metadata: https://data.mendeley.com/datasets/3t9vbwxgr5/1
