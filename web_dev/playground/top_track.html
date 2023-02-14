@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+
+      // Function to retrieve the user's top tracks using the Spotify Web API
+      async function getTopTracks() {
+        // Make a GET request to the Spotify Web API's /me/top/tracks endpoint
+        const response = await fetch("https://api.spotify.com/v1/me/top/tracks", {
+          headers: {
+            Authorization: "Bearer BQD3xj9y0OaSjq99fRr5Xw3jyfxLNuh0lTghhExrOhnF86buErkUfDfUwFJqhWoRhfzf5F7aIopuRd2TEXxslxe0brYpbePjj4qJBCaRBiopNZfDdJPBk0RHopn2r6NXnIdF1bTzkAZTiFTXuoVFkIwUGyH3AyyFo1zP7MGBTjO0_9uT829Gx_rRXit4OmlSYxIFrW1L0O_fM_x_AuHTKWiBLGgN8MVVMtm98G1a7GOIIiGRNzYDoYh8X7R4RC7manSnALVJ4BiS0vFGsBo_nZAnHXqfItwl",
+          },
+        });
+        const data = await response.json();
+
+        // Parse the response and generate HTML elements for each track
+        const tracksContainer = document.getElementById("tracks");
+        for (const track of data.items) {
+          const trackElement = document.createElement("div");
+          trackElement.innerHTML = `
+            <div>
+              <h3>${track.name}</h3>
+              <p>By ${track.artists[0].name}</p>
+              <audio controls src="${track.preview_url}"></audio>
+            </div>
+          `;
+          tracksContainer.appendChild(trackElement);
+        }
+      }
+    </script>
+  </head>
+  <body onload="getTopTracks()">
+    <h2>Your Top Tracks</h2>
+    <div id="tracks"></div>
+  </body>
+</html>
