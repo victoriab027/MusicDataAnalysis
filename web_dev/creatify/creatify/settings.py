@@ -25,7 +25,15 @@ SECRET_KEY = 'django-insecure-_p25px171v)avo-v2k87*+3-s+qs6@fe*y&#w0h#3ihubf5&cq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
+
+#specifiy default user
+AUTH_USER_MODEL = 'accounts.Spot_User'
+#specifiy new backend
+AUTHENTICATION_BACKENDS = [    'accounts.backends.Spotify_Backend',    'django.contrib.auth.backends.ModelBackend',]
+#secret id
+SPOTIFY_CLIENT_ID = ''
+SPOTIFY_CLIENT_SECRET = ''
 
 
 # Application definition
@@ -37,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'creatify_app.apps.CreatifyappConfig'
 ]
 
 MIDDLEWARE = [
