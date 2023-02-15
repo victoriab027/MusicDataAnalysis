@@ -3,7 +3,7 @@ Music Data Analysis
 This project is based off of the Milion_Dollar_Playlist created by Spotify. The goal of this project is to "analyze the Million Playlist Dataset for spotify to recommend songs to users based on the playsit chosen". I expanded the scope of this problem by implementing data from multiple other datasets. These datasets contained more data about each song such as either just tags to other similar songs or traits like "sadness", "romance", and "danceability". Cross referencing with these datasets allowed me to create a more effiecient and accurate algorithm.
 <br>
 <br>
-Since writing this README, the project has massively evolved. Instead of databases, this project has sifted into using the Spotify API to create a new spotify extension, creatify. This website will give users the chance to create a new playlist based on specifc genres and psychoacustoic values. Eventaully, the goal is to work with NLP packages in python to reccomend playlist names to the user based on their pervious playlist naming conventions as well as sentiment analysis on this playlist.
+Since writing this README, the project has massively evolved. Instead of databases, this project has sifted into using the Spotify API to create a new spotify extension, creatify. This website will give users the chance to create a new playlist based on specifc genres and psychoacustoic values. Eventaully, the goal is to work with NLP packages in python to reccomend playlist names to the user based on their pervious playlist naming conventions as well as sentiment analysis on this playlist. This project has since evovled into the project Creatify also found on my github.
 
 Dataset Usage
 ------------
