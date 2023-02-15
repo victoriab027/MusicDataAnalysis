@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Creatify</title>
+</head>
+<body>
+  <h2>Genere Selector</h2>
+  <div id="genre-list">
+    {% for genre in genres %}
+      <div>{{ genre }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="search-container">
+    <input type="text" placeholder="Search genres..." id="search-bar">
+    <div id="genre-box"></div>
+  </div>
+
+  <h2>Danceability Rating Slider</h2>
+  <br>
+  <br>
+  <div class="toggle-border">
+    <input id="toggleButton" type="checkbox">
+    <label for="toggleButton">
+      <div class="handle"></div>
+    </label>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="slider-wrapper disabled">
+    <div class="slider-titles">
+      <span class="low">Low</span>
+      <span class="medium">Medium</span>
+      <span class="high">High</span>
+    </div>
+    <input type="range" min="1" max="3" value="2" class="slider" id="danceabilitySlider">
+    <div id="undertext">These songs will have the average danceability rating in this genre. Removes all outliers</div>
+  </div>
+
+  <button onclick="saveSliderValue()">Submit</button>
+
+  <script>
+    // Get the search bar element
+    var searchbar = document.getElementById("search-bar");
+
+    // Get the genre box element
+    var genreBox = document.getElementById("genre-box");
+
+    // Get the genre list element
+    var genreList = document.getElementById("genre-list");
+
+    // Define an array to hold the selected genres
+    var selectedGenres = [];
+
+    // Function to add a genre to the box
+    function addGenre(genre) {
+      // Add the genre to the selectedGenres array
+      selectedGenres.push(genre);
+
+      // Create a new genre element
+      var genreElement = document.createElement("div");
+      genreElement.classList.add("genre");
+      genreElement.textContent = genre;
+
+      // Add the genre element to the genre box
+      genreBox.appendChild(genreElement);
+
+      // Add an event listener to the genre element to remove it when clicked
+      genreElement.addEventListener("click", function() {
+        // Remove the genre from the selectedGenres array
+        selectedGenres.splice(selectedGenres.indexOf(genre), 1);
+
+        // Remove the genre element from the genre box
+        genreBox.removeChild(genreElement);
+      });
+    }
+
+    //
+    const toggleButton = document.getElementById("toggleButton");
+    const sliderWrapper = document.querySelector(".slider-wrapper");
+    const slider = document.getElementById("danceabilitySlider");
+    const submitButton = document.getElementById("submitButton");
+    const undertext = document.getElementById("undertext");
+
+    toggleButton.addEventListener("change", function() {
+        if (this.checked) {
+            sliderWrapper.classList.remove("disabled");
+        } else {
+            sliderWrapper.classList.add("disabled");
+        }
+    });
+
+    slider.addEventListener("input", function() {
+        if (this.value === "1") {
+            undertext.innerHTML = "These songs will have below the average danceability rating in this genre.";
+        } else if (this.value === "2") {
+            undertext.innerHTML = "These songs will have the average danceability rating in this genre. Removes all outliers";
+        } else if (this.value === "3") {
+            undertext.innerHTML = "These songs will have the above the average danceability rating in this genre.";
+        }
+    });
+
+    submitButton.addEventListener("click", function() {
+        const ratingValue = slider.value;
+        const toggleValue = toggleButton.checked;
+        // send ratingValue and toggleValue to Python script using AJAX
+    });
+    </script>
+</body>
+</html>

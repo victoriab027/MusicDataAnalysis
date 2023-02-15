@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Genre Selector</h2>
+
+  <div id="genre-list">
+    {% for genre in genres %}
+      <div class="genre">{{ genre }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="selected-genres">
+    <h3>Selected genres:</h3>
+    <ul></ul>
+  </div>
+{% endblock %}

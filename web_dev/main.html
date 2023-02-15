@@ -5,6 +5,98 @@
     <title>Creatify</title>
 </head>
 <body>
+  <h2>Genere Selector</h2>
+  <div id="genre-list"></div>
+
+
+  <div class="search-container">
+    <input type="text" placeholder="Search genres..." id="search-bar">
+    <div id="genre-box"></div>
+  </div>
+  <script>
+// Get the search bar element
+var searchbar = document.getElementById("search-bar");
+
+// Get the genre box element
+var genreBox = document.getElementById("genre-box");
+
+// Get the genre list element
+var genreList = document.getElementById("genre-list");
+
+// Define an array to hold the selected genres
+var selectedGenres = [];
+
+// Load the genres from a file
+var genres = [];
+fetch("genres.txt")
+  .then(response => response.text())
+  .then(data => {
+    genres = data.split("\n");
+    // Print the list of all genres in the genreList element
+    for (var i = 0; i < genres.length; i++) {
+      var genre = genres[i];
+      var genreElement = document.createElement("div");
+      genreElement.textContent = genre;
+      genreList.appendChild(genreElement);
+    }
+  });
+
+// Function to add a genre to the box
+function addGenre(genre) {
+  // Add the genre to the selectedGenres array
+  selectedGenres.push(genre);
+
+  // Create a new genre element
+  var genreElement = document.createElement("div");
+  genreElement.classList.add("genre");
+  genreElement.textContent = genre;
+
+  // Add the genre element to the genre box
+  genreBox.appendChild(genreElement);
+
+  // Add an event listener to the genre element to remove it when clicked
+  genreElement.addEventListener("click", function() {
+    // Remove the genre from the selectedGenres array
+    selectedGenres.splice(selectedGenres.indexOf(genre), 1);
+
+    // Remove the genre element from the genre box
+    genreBox.removeChild(genreElement);
+  });
+}
+
+// Add an event listener to the search bar to filter the genres
+searchbar.addEventListener("input", function() {
+  // Get the search query from the search bar
+  var query = searchbar.value.trim().toLowerCase();
+
+  // Clear the genre box
+  genreBox.innerHTML = "";
+
+  // Add any genres that match the search query
+  for (var i = 0; i < genres.length; i++) {
+    var genre = genres[i];
+    if (genre.toLowerCase().includes(query)) {
+      var alreadySelected = selectedGenres.includes(genre);
+      var genreElement = document.createElement("div");
+      genreElement.classList.add("genre");
+      genreElement.textContent = genre;
+      if (alreadySelected) {
+        genreElement.classList.add("selected");
+      }
+      genreElement.addEventListener("click", function() {
+        if (!alreadySelected) {
+          addGenre(genre);
+        }
+      });
+      genreBox.appendChild(genreElement);
+    }
+  }
+});
+
+
+  </script>
+
+
 
 	<h2>Danceability Rating Slider</h2>
     <br>
